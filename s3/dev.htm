@@ -2,42 +2,62 @@
   <head>
     <title>OpenLambda Development Page</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   </head>
   
   <body>
     <div id="page-wrap">
-      <div class="title">OpenLambda Development</div>
+      <div class="title">OpenLambda</div>
 
-      <div class="section">Weekly Meetings</div>
+      <ul id="menu">
+        <li><a href="contact.htm">Contact Us</a></li>
+        <li><a href="team.htm">Our Team</a></li>
+        <li><a href="news.htm">News</a></li>
+        <li><a class="active" href="dev.htm">Development</a></li>
+        <li><a href="index.htm">About</a>
+      </ul> 
 
-      <p>Onboarding: <a href="slides/ol-first-meeting.pdf">slides</a></p>
-      <p>June 7, 2016: <a href="slides/june-7-16.pdf">slides</a></p>
+      <div class="section">
+        <h class="section">Source Code</h>
 
-      <div class="section">Communication</div>
+        <p class="section">We plan to make our git repo public on June 20th, 2016.</p>
 
-      <p>Slack Development Channel: <a href="https://open-lambda.slack.com">https://open-lambda.slack.com</a></p>
+      </div>
 
-      <div class="section">Suggested Reading/Watching</div>
+      <div class="section">
+        <h class="section">Weekly Meetings</h>
 
-      <ul>
-	<li><a href="https://www.destroyallsoftware.com/talks/wat">Wat</a>
-	<li><a href="https://www.youtube.com/watch?v=hgN8pCMLI2U">History of Containers</a>
-	<li><a href="http://www.cs.cmu.edu/~coda/docdir/s11.pdf">AFS Benchmarking</a>
-	  
-      </ul>
+        <p class="section">Onboarding: <a href="slides/ol-first-meeting.pdf">slides</a></p>
+        <p class="section">June 7, 2016: <a href="slides/june-7-16.pdf">slides</a></p>
+      </div>
+
+      <div class="section">
+        <h class="section">Communication</h>
+        <p class="section">Slack Development Channel: </p>
+        <a href="https://open-lambda.slack.com">https://open-lambda.slack.com</a>
+      </div>
+
+      <div class="section">
+        <h class="section">Suggested Materials</h>
+        <ul class="section">
+        	<li><a href="https://www.destroyallsoftware.com/talks/wat">Wat</a>
+        	<li><a href="https://www.youtube.com/watch?v=hgN8pCMLI2U">History of Containers</a>
+        	<li><a href="http://www.cs.cmu.edu/~coda/docdir/s11.pdf">AFS Benchmarking</a>
+        </ul>
+      </div>
       
-      <div class="section">Related Projects</div>
-      <ul>
-	<li><a href="https://aws.amazon.com/lambda/">AWS Lambda</a>
-	<li><a href="https://cloud.google.com/functions/">Google Cloud
-	Functions (Alpha)</a>
-	<li><a href="https://azure.microsoft.com/en-us/services/functions/">Azure
-	    Functions (Preview)</a>
-	<li><a href="https://developer.ibm.com/openwhisk/">OpenWhisk</a>
-	<li><a href="https://leveros.readme.io/">Lever OS</a>
-	<li><a href="https://www.iron.io/">Iron.io</a>
-	<li><a href="http://serverless.com/">Serverless</a>
-      </ul>
+      <div class="section">
+        <h class="section">Related Projects</h>
+        <ul class="section">
+        	<li><a href="https://aws.amazon.com/lambda/">AWS Lambda</a>
+        	<li><a href="https://cloud.google.com/functions/">Google Cloud Functions (Alpha)</a>
+        	<li><a href="https://azure.microsoft.com/en-us/services/functions/">Azure Functions (Preview)</a>
+        	<li><a href="https://developer.ibm.com/openwhisk/">OpenWhisk</a>
+        	<li><a href="https://leveros.readme.io/">Lever OS</a>
+        	<li><a href="https://www.iron.io/">Iron.io</a>
+        	<li><a href="http://serverless.com/">Serverless</a>
+        </ul>
+      </div>
       
     </div>
   </body>

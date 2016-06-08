@@ -1,78 +1,49 @@
 <html>
   <head>
-    <title>OpenLambda Project</title>
+    <title>OpenLambda</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="main.js"></script>
+    <script src="javascript/main.js"></script>
   </head>
   
   <body>
     <div id="page-wrap">
-      <div class="title">Serverless Compute with OpenLambda</div>
+      <div class="title">OpenLambda</div>
 
-      <div class="section">Background</div>
-
-      <p>Cloud computing is evolving.  All major public cloud providers now
-	support serverless computing:</p>
-
-      <ul>
-	<li><a href="https://aws.amazon.com/lambda/">AWS Lambda</a>
-	<li><a href="https://cloud.google.com/functions/">Google Cloud
-	Functions (Alpha)</a>
-	<li><a href="https://azure.microsoft.com/en-us/services/functions/">Azure
-	Functions (Preview)</a>
+      <ul id="menu">
+        <li><a href="contact.htm">Contact Us</a></li>
+        <li><a href="team.htm">Our Team</a></li>
+        <li><a href="news.htm">News</a></li>
+        <li><a href="dev.htm">Development</a></li>
+        <li><a class="active" href="index.htm">About</a>
       </ul>
 
-      <p>Serverless computing introduces many new research challenges in
-      the areas of sandboxing, session management, load balancing, and
-      databases.</p>
+      <div class="section">
+        <h class="section">Background</h>
 
-      <p>Unfortunately, all the major implementations of serverless
-      computing platforms are proprietary, so these areas are
-      difficult for academic researchers to explore.</p>
+        <p class="section">Cloud computing is evolving.  All major public cloud providers now
+  	support serverless computing:</p>
 
-      <p>Our goal with OpenLambda is to create an open source
-      implementation of a serverless compute platform, thus enabling
-      this research.</p>
-      
-      <div class="section">Publications</div>
+        <ul class="section">
+        	<li><a href="https://aws.amazon.com/lambda/">AWS Lambda</a>
+        	<li><a href="https://cloud.google.com/functions/">Google Cloud
+        	Functions (Alpha)</a>
+        	<li><a href="https://azure.microsoft.com/en-us/services/functions/">Azure
+        	Functions (Preview)</a>
+        </ul>
 
-      <p>Our first OpenLambda paper will appear
-      in <a href="https://www.usenix.org/conference/hotcloud16">HotCloud
-      '16</a>.</p>
-      
-      <div class="section">Source Code</div>
+        <p class="section">Serverless computing introduces many new research challenges in
+        the areas of sandboxing, session management, load balancing, and
+        databases.</p>
 
-      <p>We plan to make our git repo public on June 20th, 2016.</p>
-      
-      <div class="section">Follow</div>
+        <p class="section">Unfortunately, all the major implementations of serverless
+        computing platforms are proprietary, so these areas are
+        difficult for academic researchers to explore.</p>
 
-      <p>Want to stay updated?  Share your email:</p>
-
-      <div id="status"></div>
-      
-      <form id="subscribe_form">
-	<table>
-	  <tr>
-	    <td>Name:</td>
-	    <td><input type="text" id="name"></td>
-	  </tr>
-	  <tr>
-	    <td>Email:</td>
-	    <td><input type="text" id="email"></td>
-	  </tr>
-	  <tr>
-	    <td></td>
-	    <td><input type="button" id="subscribe" value="Submit"></td>
-	  </tr>
-	</table>
-
-      </form>
-
-      <div class="section">Contribute</div>
-
-      <p>Please visit our <a href="dev.htm">development page</a>.</p>
-      
+        <p class="section">Our goal with OpenLambda is to create an open source
+        implementation of a serverless compute platform, thus enabling
+        this research.</p>
+      </div>
     </div>
   </body>
 </html>
