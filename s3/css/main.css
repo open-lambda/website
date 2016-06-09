@@ -43,6 +43,7 @@ body {
     margin: 0 auto;
     padding: 10;
     background-color: #EEEEEE;
+    overflow: hidden;
 }
 
 .title {

@@ -1,0 +1,25 @@
+#team {
+  width: 100%;
+}
+
+.row {
+  margin: 1%;
+  padding: 1%;
+}
+
+.person {
+  padding: 2%;
+  width: 46%;
+  float: left;
+}
+
+#team img {
+  padding-right: 2%;
+  width: 30%;
+  float: left;
+}
+
+#team h {
+  font-size: 1.2em;
+  font-weight: bold;
+}
