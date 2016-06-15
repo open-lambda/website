@@ -2,11 +2,12 @@
   <head>
     <title>OpenLambda</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   </head>
   
   <body>
-    <div id="page-wrap">
       <div class="title">OpenLambda</div>
 
       <ul id="menu">
@@ -18,18 +19,37 @@
         <li><a class="active" href="index.htm">About</a>
       </ul>
       <div class="section">
-        <h class="section">Background</h>
+        <h1 class="section">Background</h1>
+        <hr align="left" width="50%">
 
         <p class="section">Cloud computing is evolving.  All major public cloud providers now
   	support serverless computing:</p>
-
-        <ul class="section">
-        	<li><a href="https://aws.amazon.com/lambda/">AWS Lambda</a>
-        	<li><a href="https://cloud.google.com/functions/">Google Cloud
-        	Functions (Alpha)</a>
-        	<li><a href="https://azure.microsoft.com/en-us/services/functions/">Azure
-        	Functions (Preview)</a>
-        </ul>
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="intro-content">
+                <h5>AWS Lambda</h5>
+                <a class="btn" href="https://cloud.google.com/functions/">learn more</a>
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <div class="intro-content">
+                <h5>Google Cloud Functions (Alpha)</h5>
+                <a class="btn btn-accent btn-large" href="https://cloud.google.com/functions/">learn more</a>
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <div class="intro-content">
+                <h5>Azure Function</h5>
+                <a class="btn btn-accent btn-large" href="https://cloud.google.com/functions/">learn more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+       
 
         <p class="section">Serverless computing introduces many new research challenges in
         the areas of sandboxing, session management, load balancing, and
@@ -43,6 +63,13 @@
         implementation of a serverless compute platform, thus enabling
         this research.</p>
       </div>
+
+      <div id="footerwrap">
+        <div class="container">
+          <h4>Copyright &#169 2016 Open-Lambda</h4>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>

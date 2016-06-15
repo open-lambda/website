@@ -3,16 +3,107 @@
 
 body {
     background-color: #555555;
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 30px;
     font-family: 'Source Sans Pro', sans-serif;
 }
+
+h1, h2, h3, h4, h5, p {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.title {
+    font-size: 3.75em;
+    border-bottom: 4px solid #333;
+    font-weight: bold;
+    text-align: right;
+    padding: 30px;
+    margin-bottom: 5px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+h1.section {
+  color: #404040  ;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-left: 50px;
+  padding-top: 40px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+h2.section {
+  color: #404040;
+  padding: 50px 0 10px 0;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: 2px 2px 8px #A0A0A0;
+  text-transform: uppercase;
+}
+
+h4.section {
+  color: #404040;
+  font-weight: normal;
+  text-align: center;
+}
+
+h5 {
+  color: #404040;
+  font-size: 10px;
+  font-weight: lighter;
+  text-align: center;
+}
+
+h5.section {
+  color: #404040;
+  font-size: 15px;
+  padding: 50px 0 10px 0;
+  font-weight: normal;
+  text-align: center;
+}
+
+p.section {
+  margin-left: 50px;
+  margin-right: 50px;
+  line-height: 40px;
+}
+
+p span {
+  padding-right: 5px;
+}
+
+li {
+  float: center;
+}
+
+.row {
+  margin-right: 0px
+  margin-left: -15px;
+}
+
+a.btn {
+  margin-top: 20px;
+  font-size: 13px;
+  border: 2px solid #A0A0A0;
+  border-radius: 40px;
+  display: inline-block;
+  background-color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-transform: uppercase;
+  color: #A0A0A0;
+}
+
+a.btn:hover, a.btn:focus {
+  color: #ffffff;
+  border-color: #A0A0A0;
+  background-color: #A0A0A0; }
 
 #menu {
     list-style-type: none;
     margin: 0;
     margin-bottom: 5px;
-    padding: 0;
+    padding: 0 30px 0 30px;
     overflow: hidden;
     background-color: #333;
 }
@@ -46,23 +137,6 @@ body {
     overflow: hidden;
 }
 
-.title {
-    font-size: 3.75em;
-    border-bottom: 4px solid #333;
-    font-weight: bold;
-    text-align: right;
-    padding-top: 10px;
-    margin-bottom: 5px;
-    font-family: 'PT Sans', sans-serif;
-}
-
-h.section {
-    font-size: 2em;
-    font-weight: bold;
-    padding-top: 3px;
-    padding-bottom: 0px;
-}
-
 ul.section {
     list-style-type: none;
     margin: 0;
@@ -80,8 +154,9 @@ ul.section li a {
     padding: .2em 1em;
 }
 
-a {
-    text-decoration: none;
+.intro-content {
+  display: inline-block;
+  width: 80%;
 }
 
 input[type=text], select {
@@ -91,6 +166,8 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
     width: 200px;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
 input[type=button] {
@@ -101,8 +178,38 @@ input[type=button] {
     border-radius: 4px;
     cursor: pointer;
     width: 200px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 30px;
 }
 
 input[type=button]:hover {
     background-color: #45a049;
+}
+
+.col-md-4 {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+
+#footerwrap {
+  background: #2b2b2b;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-weight: light;
+  color: #ffffff;
+}
+
+#footerwrap h4 {
+  color: white;
+  font-family: "Raleway";
+}
+
+/* icon */
+.icon-github {
+  src:url('./resources/icon/github');
 }
