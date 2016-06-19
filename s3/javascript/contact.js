@@ -1,7 +1,6 @@
 function dosubmit() {
-    $("#subscribe_form").hide();
-    $("#status").text("submitting");
-    $("#status").fadeIn("slow");
+    console.log($("#follow-status"));
+    $("#follow-status").text("submitting");
 
     url = "https://tvf6vlcfa0.execute-api.us-east-1.amazonaws.com/prod/open-lambda-subscribe";
     data = {
@@ -17,15 +16,14 @@ function dosubmit() {
 	dataType: "json"}
 	  )
 	.done(function(result) {
-	    $("#status").html(result)
+	    $("#follow-status").html(result)
 	})
 	.fail(function(r){
-	    $("#status").html("subscription failed")
+	    $("#follow-status").html("subscription failed")
 	});
 }
 
 function main() {
-    $("#status").hide();
     $('#subscribe').click(dosubmit);
     $('#name').keypress(function(e){
 	if(e.which === 13)

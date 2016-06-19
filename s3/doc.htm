@@ -2,167 +2,173 @@
   <head>
     <title>OpenLambda Project</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="javascript/main.js"></script>
   </head>
   
   <body>
-      <div class="title">OpenLambda</div>
+    <div class="title">OpenLambda</div>
 
-      <ul id="menu">
-        <li><a href="contact.htm">Contact Us</a></li>
-        <li><a href="team.htm">Our Team</a></li>
-        <li><a href="news.htm">News</a></li>
-        <li><a class="active" href="doc.htm">Documentation</a></li>
-        <li><a href="dev.htm">Development</a></li>
-        <li><a href="index.htm">About</a>
-      </ul>    
-<!--
-      <div class="section">
-        <h1 class="section">Documentation</h1>
-        <hr align="left" width="50%">
-        <h1 padding-top="80px"></h1>
-      </div>
-<-->
+    <ul id="menu">
+      <li><a href="contact.htm">Contact Us</a></li>
+      <li><a href="team.htm">Our Team</a></li>
+      <li><a href="news.htm">News</a></li>
+      <li><a class="active" href="doc.htm">Documentation</a></li>
+      <li><a href="dev.htm">Development</a></li>
+      <li><a href="index.htm">About</a>
+    </ul>    
+    <!--
+	<div class="section">
+          <h1 class="section">Documentation</h1>
+          <hr align="left" width="50%">
+          <h1 padding-top="80px"></h1>
+	</div>
+	<-->
 
-      <h2>Quickstart</h2>
-      <p>Because the Docker operations require root privileges, it is 
-      recommended to use OpenLambda in a virtual environment. The setup script
-      has been tested in only Ubuntu. Once in your virtual environment as the
-      root user, run these terminal commands (commands in <b>bold</b> may take
-      minutes to finish): <br><br>
-      <i>apt-get install git</i> (if you don't have git)
-      <br><i>git clone https://github.com/open-lambda/open-lambda</i>
-      <br><i><b>bash open-lambda/tools/quickstart/startup.sh</i></b>
-      <br><i>cd open-lambda</i>
-      <br><i><b>make imgs/lambda-node</i></b>
-      <br><i><b>./util/start-local-cluster.py</i></b>
-      <br><i><b>./util/setup.py pychat chat.py</b></i>
-      <br><br>
-      If you want to host static content with nginx (recommended): run the
-      suggested command at the end of the previous command's output. To learn
-      how to interact with the application, see the <b>Issuing RPCs</b> section
-      of this documentation</p>
+    <div class="section">
+      <h1 class="section">Quickstart</h1>
+      <p class="section">Because the Docker operations require root privileges, it is 
+	recommended to use OpenLambda in a virtual environment. The setup script
+	has been tested in only Ubuntu. Once in your virtual environment as the
+	root user, run these terminal commands (commands in <b>bold</b> may take
+	minutes to finish): <br><br>
+	<i>apt-get install git</i>
+	<br><i>git clone https://github.com/open-lambda/open-lambda</i>
+	<br><i><b>bash open-lambda/tools/quickstart/startup.sh</i></b>
+	<br><i>cd open-lambda</i>
+	<br><i><b>make imgs/lambda-node</i></b>
+	<br><i><b>./util/start-local-cluster.py</i></b>
+	<br><i><b>./util/setup.py pychat chat.py</b></i>
+	<br><br>
+	If you want to host static content with nginx (recommended): run the
+	suggested command at the end of the previous command's output. To learn
+	how to interact with the application, see the <b>Issuing RPCs</b> section
+	of this documentation.</p>
 
-      <h2>Architecture</h2>
-      <p>The simplest OpenLambda architecture has three physical machines 
-      (currently Docker containers). One physical machine has an Nginx instance
-      that serves as the  <b>load balancer</b>. The second physical machine 
-      holds a <b>registry</b> of <b>lambdas</b>, which are Docker images 
-      containing the Python handler written by the developer. 
-      The third machine holds a <b>lambda node</b>, or <b>node</b>, which has a
-      <b>worker</b>, a Docker instance, and a RethinkDB database shard. The web
-      developer supplies Python <b>handlers</b>, which perform certain
-      computations based on RPCs from the client-side of the web 
-      application. This Python, along with any data the web application may 
-      need, is stored in a Docker image that sits in the <b>registry</b>. When
-      a user visits the website and does something to trigger the 
-      <b>handler</b>, an RPC is sent via AJAX from the JavaScript code. 
-      This RPC is routed through the Nginx <b>load balancer</b>, which
-      will choose a  <b>node</b> to handle the request. The <b>node's worker
-      </b> is the recipient of the request. The <b>worker</b> pulls the 
-      appropriate <b>lambda</b> from the <b>registry</b> to the <b>node</b> (if
-      the <b>lambda</b> is not already on the <b>node</b>) and then starts a Docker 
-      container from the <b>lambda</b>. The data from the RPC are fed to
-      the <B>lambda function</b> (the Python code the developer wrote), and the
-      appropriate answer is returned. Lastly, the <b>worker</b> responds to the
-      initial RPC by sending information back to the client side.
-      For more information on the OpenLambda architecture, 
-      see <a href="resources/slides/ol-first-meeting.pdf">these
+      <h1 class="section">Architecture</h1>
+      <p class="section">The simplest OpenLambda deployment has three physical machines 
+	(currently Docker containers). One physical machine has an Nginx instance
+	that serves as the  <b>load balancer</b>. The second physical machine 
+	holds a <b>registry</b> of <b>lambdas</b>, which are Docker images 
+	containing the Python handler written by the developer. 
+	The third machine holds a <b>lambda node</b>, or <b>node</b>, which has a
+	<b>worker</b>, a Docker instance, and a RethinkDB database shard. The web
+	developer supplies Python <b>handlers</b>, which perform certain
+	computations based on RPCs from the client-side of the web 
+	application. This Python, along with any data the web application may 
+	need, is stored in a Docker image that sits in the <b>registry</b>. When
+	a user visits the website and does something to trigger the 
+	<b>handler</b>, an RPC is sent via AJAX from the JavaScript code. 
+	This RPC is routed through the Nginx <b>load balancer</b>, which
+	will choose a  <b>node</b> to handle the request. The <b>node's worker
+	</b> is the recipient of the request. The <b>worker</b> pulls the 
+	appropriate <b>lambda</b> from the <b>registry</b> to the <b>node</b> (if
+	the <b>lambda</b> is not already on the <b>node</b>) and then starts a Docker 
+	container from the <b>lambda</b>. The data from the RPC are fed to
+	the <B>lambda function</b> (the Python code the developer wrote), and the
+	appropriate answer is returned. Lastly, the <b>worker</b> responds to the
+	initial RPC by sending information back to the client side.
+	For more information on the OpenLambda architecture, 
+	see <a href="resources/slides/ol-first-meeting.pdf">these
           slides</a> for some helpful diagrams. Slides 56-64 show the 
-      OpenLambda architecture.</p>
+	OpenLambda architecture.</p>
 
-      <h2>For Contributors (What's in the Github repo?)</h2>
-      <p>Several of the directories in the Github repository are pertinent to 
-      understanding OpenLambda:
-      <br><br><b>applications: </b>contains applications written to showcase
-      and provide a benchmark suite for the OpenLambda system. Currently, three
-      applications are functional: pychat, pyocr, and pytix
-      <br><br><b>lambda-generator: </b>has the Python code for generating
-      <b>lambda nodes</b>, including <i>builder.py</i>
-      <br><br><b>nginx: </b>contains a build of nginx for load balancing. It's
-      also possible to serve an app's static content (web interface) with nginx
-      <br><br><b>node: </b>contains the Python code that builds the 
-      <b>nodes</b> of the OpenLambda network, namely <i>builder.py</i>
-      <br><br><b>testing: </b>contains some code for unit testing
-      <br><br><b>tools: </b>contains scripts to initialize environments in
-      which OpenLambda can run
-      <br><br><b>util: </b>has scripts for starting a local cluster of 
-      <b>nodes</b>, stopping a local cluster of <b>nodes</b>, and building a
-      <b>lambda</b>
-      <br><br><b>worker: </b>contains the Go code for the server-like part 
-      (<b>worker</b>) of a node</p>
+      <h1 class="section">For Contributors (What's in the Github repo?)</h1>
+      <p class="section">Several of the directories in the Github repository are pertinent to 
+	understanding OpenLambda:
+	<br><br><b>applications: </b>contains applications written to showcase
+	and provide a benchmark suite for the OpenLambda system. Currently, three
+	applications are functional: pychat, pyocr, and pytix
+	<br><br><b>lambda-generator: </b>has the Python code for generating
+	<b>lambda nodes</b>, including <i>builder.py</i>
+	<br><br><b>nginx: </b>contains a build of nginx for load balancing. It's
+	also possible to serve an app's static content (web interface) with nginx
+	<br><br><b>node: </b>contains the Python code that builds the 
+	<b>nodes</b> of the OpenLambda network, namely <i>builder.py</i>
+	<br><br><b>testing: </b>contains some code for unit testing
+	<br><br><b>tools: </b>contains scripts to initialize environments in
+	which OpenLambda can run
+	<br><br><b>util: </b>has scripts for starting a local cluster of 
+	<b>nodes</b>, stopping a local cluster of <b>nodes</b>, and building a
+	<b>lambda</b>
+	<br><br><b>worker: </b>contains the Go code for the server-like part 
+	(<b>worker</b>) of a node</p>
 
-      <h2>For Lambda Writers (How do apps work?)</h2>
-      <p>Using the pychat app (<i>/applications/pychat</i>) as an example can
-      help illustrate how apps run on OpenLambda. The pychat directory has a 
-      file called <i>chat.py</i> (the pychat app's <b>lambda function</b>),
-      which contains a function called <i>handler()</i>. When a client-side RPC
-      is made, this <i>handler()</i> function gets the data from the RPC, 
-      chooses the correct function to carry out the necessary computations, and
-      returns the result. Looking at <i>chat.py</i> will help clarify this 
-      process. The pychat directory also has a subdirectory called
-      <i>static</i> that contains the developer-written JavaScript code and
-      HTML for the application web interface. Users can interact with the 
-      application via the web interface (by using Nginx to host static content)
-      or via the terminal tool curl. For more on that, see the Issuing RPCs 
-      section. For more on the specifics of how OpenLambda handles RPCs, see 
-      <a href="resources/slides/ol-first.meeting.pdf">these slides</a> for 
-      some helpful diagrams. Slides 56-64 show the 
-      OpenLambda architecture, while slides 97-108 show how OpenLambda runs on
-      one physical machine (like your computer).</p>
+      <h1 class="section">For Lambda Writers (How do apps work?)</h1>
+      <p class="section">Using the pychat app (<i>/applications/pychat</i>) as an example can
+	help illustrate how apps run on OpenLambda. The pychat directory has a 
+	file called <i>chat.py</i> (the pychat app's <b>lambda function</b>),
+	which contains a function called <i>handler()</i>. When a client-side RPC
+	is made, this <i>handler()</i> function gets the data from the RPC, 
+	chooses the correct function to carry out the necessary computations, and
+	returns the result. Looking at <i>chat.py</i> will help clarify this 
+	process. The pychat directory also has a subdirectory called
+	<i>static</i> that contains the developer-written JavaScript code and
+	HTML for the application web interface. Users can interact with the 
+	application via the web interface (by using Nginx to host static content)
+	or via the terminal tool curl. For more on that, see the Issuing RPCs 
+	section. For more on the specifics of how OpenLambda handles RPCs, see 
+	<a href="resources/slides/ol-first.meeting.pdf">these slides</a> for 
+	some helpful diagrams. Slides 56-64 show the 
+	OpenLambda architecture, while slides 97-108 show how OpenLambda runs on
+	one physical machine (like your computer).</p>
 
-      <h2>Issuing RPCs (curl, website)</h2>
-      <p>There are two ways to interact with apps running on OpenLambda via
-      RPCs: the command line tool curl, or the JavaScript webpage.</p>
+      <h1 class="section">Issuing RPCs (curl, browser)</h1>
+      <p class="section">There are two ways to interact with apps running on OpenLambda via
+	RPCs: the command line tool curl, or the JavaScript webpage.</p>
 
-      <h3>Curl</h3>
-      <p>Curl is a command line tool for issuing RPCs. A sample curl call
-      is <br><br> <i>
+      <h2 class="section">Curl</h2>
+      <p class="section">Curl is a command line tool for issuing RPCs. A sample curl call
+	is <br><br> <i>
           curl -w "\n" <b>localhost</b>:<b>loadbalancer</b>/runLambda/
           <b>imgname</b> -d '{"op":"init"}'</i><br><br>where the <b>bold</b>
-      parts of the address need to be replaced with specific information as 
-      follows. 
-      <b>localhost</b> needs to be replaced with the IP address of your
-      localhost. <b>loadbalancer</b> needs to be replaced with the port 
-      that the Nginx <b>load balancer</b> is connected to. This port can
-      be found by typing <i>docker ps</i> into the terminal and then
-      looking at the second nginx container under the PORTS column, in the
-      last of the three listings there. The port number should be around 32770.
-      <b>imgname</b> can be found by typing <i>docker images</i> into the
-      terminal and looking in the topmost row in the REPOSITORY column for a 
-      string of 12 random characters, which is <b>imgname</b>.
-      Different apps take different RPC data (the section after the -d
-      flag), and you can figure out how those work from the application's 
-      <b>lambda function</b>.
+	parts of the address need to be replaced with specific information as 
+	follows. 
+	<b>localhost</b> needs to be replaced with the IP address of your
+	localhost. <b>loadbalancer</b> needs to be replaced with the port 
+	that the Nginx <b>load balancer</b> is connected to. This port can
+	be found by typing <i>docker ps</i> into the terminal and then
+	looking at the second nginx container under the PORTS column, in the
+	last of the three listings there. The port number should be around 32770.
+	<b>imgname</b> can be found by typing <i>docker images</i> into the
+	terminal and looking in the topmost row in the REPOSITORY column for a 
+	string of 12 random characters, which is <b>imgname</b>.
+	Different apps take different RPC data (the section after the -d
+	flag), and you can figure out how those work from the application's 
+	<b>lambda function</b>.
       </p>
-      <h3>JavaScript</h3>
-      <p>
-      After setting up static content hosting with nginx using the command 
-      suggested at the end of the output from 
-      <i><b>./util/setup.py pychat chat.py</b></i>, go to your web
-      browser and enter IP:80, where IP is replaced with the IP address of your
-      localhost. You'll see the web interface specified by the <i>main.js</i>
-      and <i>index.html</i> files in the static subdirectory of the app that
-      you are running, and you can experiment with the app.</p>
-      <h2>Glossary</h2>
-      <p>In order to ensure consistency of language, here is a glossary to
-      define terms clearly:
-      <br><br><b>handler: </b>the code written by a developer to handle RPCs 
-      for her app
-      <br><br><b>lambda: </b>a Docker image containing the <b>handler</b>
-      <br><br><b>lambda function: </b>refers to same code as <b>handler</b>
-      does, but specifically in the context of <b>lambdas</b>
-      <br><br><b>load balancer: </b>Nginx instance that distributes RPCs
-      around various <b>nodes</b>. The load balancer temporarily uses a 
-      round-robin policy but a more effective strategy is under developement.
-      <br><br><b>(lambda) node: </b>basic unit of OpenLambda, contains a 
-      <b>worker</b>, a Docker instance, and a RethinkDB instance
-      <br><br><b>registry: </b>contains all <b>lambdas</b> (and therefore apps)
-      that OpenLambda can execute
-      <br><br><b>worker: </b>server-like part of <b>node</b>; receives RPC
-      requests from load balancer, starts appropriate <b>lambda</b>,and sends
-      response to RPC</p>
+      <h2 class="section">Browser</h2>
+      <p class="section">
+	After setting up static content hosting with nginx using the command 
+	suggested at the end of the output from 
+	<i><b>./util/setup.py pychat chat.py</b></i>, go to your web
+	browser and enter IP:80, where IP is replaced with the IP address of your
+	localhost. You'll see the web interface specified by the <i>main.js</i>
+	and <i>index.html</i> files in the static subdirectory of the app that
+	you are running, and you can experiment with the app.</p>
+
+
+      <!--
+	  <h1 class="section">Glossary</h1>
+      <p class="section">In order to ensure consistency of language, here is a glossary to
+	define terms clearly:
+	<br><br><b>handler: </b>the code written by a developer to handle RPCs 
+	for her app
+	<br><br><b>lambda: </b>a Docker image containing the <b>handler</b>
+	<br><br><b>lambda function: </b>refers to same code as <b>handler</b>
+	does, but specifically in the context of <b>lambdas</b>
+	<br><br><b>load balancer: </b>Nginx instance that distributes RPCs
+	around various <b>nodes</b>. The load balancer temporarily uses a 
+	round-robin policy but a more effective strategy is under developement.
+	<br><br><b>(lambda) node: </b>basic unit of OpenLambda, contains a 
+	<b>worker</b>, a Docker instance, and a RethinkDB instance
+	<br><br><b>registry: </b>contains all <b>lambdas</b> (and therefore apps)
+	that OpenLambda can execute
+	<br><br><b>worker: </b>server-like part of <b>node</b>; receives RPC
+	requests from load balancer, starts appropriate <b>lambda</b>,and sends
+	response to RPC</p>
+      -->
+    </div>
   </body>
 </html>
